@@ -19,7 +19,30 @@ sed -i "s|DISTRIB_REVISION='.*'|DISTRIB_REVISION='R$(date +%Y.%m.%d)'|g" package
 echo "DISTRIB_SOURCECODE='lede'" >>package/base-files/files/etc/openwrt_release
 
 # Modify default IP（FROM 192.168.1.1 CHANGE TO 192.168.31.4）
-# sed -i 's/192.168.1.1/192.168.31.4/g' package/base-files/files/bin/config_generate
+sed -i 's/192.168.1.1/192.168.2.1/g' package/base-files/files/bin/config_generate
+# sed -i 's/luci-theme-bootstrap/luci-theme-argon/g' feeds/luci/collections/luci/Makefile
+
+ZZZ="package/lean/default-settings/files/zzz-default-settings"
+sed -i '/CYXluq4wUazHjmCDBCqXF/d' $ZZZ
+
+echo '修改主机名'
+sed -i "s/hostname='OpenWrt'/hostname='Phicomm K3'/g" package/base-files/files/bin/config_generate
+cat package/base-files/files/bin/config_generate |grep hostname=
+echo '=========Alert hostname OK!========='
+
+echo '移除主页跑分信息显示'
+sed -i 's/ <%=luci.sys.exec("cat \/etc\/bench.log") or ""%>//g' package/lean/autocore/files/arm/index.htm
+echo '=========Remove benchmark display in index OK!========='
+
+echo '移除主页日志打印'
+sed -i '/console.log(mainNodeName);/d' package/lean/luci-theme-argon/htdocs/luci-static/argon/js/script.js
+echo '=========Remove log print in index OK!========='
+
+echo '修改upnp绑定文件位置'
+sed -i 's/\/var\/upnp.leases/\/tmp\/upnp.leases/g' feeds/packages/net/miniupnpd/files/upnpd.config
+cat feeds/packages/net/miniupnpd/files/upnpd.config |grep upnp_lease_file
+echo '=========Alert upnp binding file directory!========='
+
 
 # Replace the default software source
 # sed -i 's#openwrt.proxy.ustclug.org#mirrors.bfsu.edu.cn\\/openwrt#' package/lean/default-settings/files/zzz-default-settings
@@ -29,7 +52,7 @@ echo "DISTRIB_SOURCECODE='lede'" >>package/base-files/files/etc/openwrt_release
 # ------------------------------- Other started -------------------------------
 #
 # Add luci-app-amlogic
-svn co https://github.com/ophub/luci-app-amlogic/trunk/luci-app-amlogic package/luci-app-amlogic
+# svn co https://github.com/ophub/luci-app-amlogic/trunk/luci-app-amlogic package/luci-app-amlogic
 
 # Fix runc version error
 # rm -rf ./feeds/packages/utils/runc/Makefile
