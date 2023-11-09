@@ -13,7 +13,6 @@ on:
         description: 'SSH connection to Actions'
         required: false
         default: 'false'
-    inputs:
       source_branch:
         description: "Select the source branch"
         required: false
