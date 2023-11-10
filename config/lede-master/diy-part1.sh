@@ -43,3 +43,4 @@ echo '=========Replace k3 wireless firmware OK!========='
 echo 'src-git small https://github.com/kenzok8/small' >>feeds.conf.default
 echo 'src-git kenzo https://github.com/kenzok8/openwrt-packages' >>feeds.conf.default
 git clone https://github.com/hczjxhdyz/luci-app-cns-server.git package/lean/luci-app-cns-server
+git clone https://github.com/chenzhen6666/mproxy.git package/lean/mproxy
