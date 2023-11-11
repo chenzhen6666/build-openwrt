@@ -6293,5 +6293,6 @@ CONFIG_PACKAGE_ubi-utils=y
 # CONFIG_PACKAGE_yanglint is not set
 CONFIG_PACKAGE_dnsmasq_full_dhcpv6=y
 CONFIG_PACKAGE_kmod-ip6tables-extra=y
+CONFIG_PACKAGE_luci-app-mproxy=y
 CONFIG_PACKAGE_mproxy=y
 # end of Utilities
