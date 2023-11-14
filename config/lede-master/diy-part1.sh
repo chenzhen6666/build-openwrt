@@ -40,6 +40,6 @@ echo '替换无线驱动'
 wget -nv https://github.com/yangxu52/Phicomm-k3-Wireless-Firmware/raw/master/brcmfmac4366c-pcie.bin.${firmware} -O package/lean/k3-brcmfmac4366c-firmware/files/lib/firmware/brcm/brcmfmac4366c-pcie.bin
 echo '=========Replace k3 wireless firmware OK!========='
 
-echo 'src-git chenzhen6666 https://github.com/chenzhen6666/openwrt_helloworld' >>feeds.conf.default
+echo 'src-git small https://github.com/kenzok8/small' >>feeds.conf.default
 echo 'src-git kenzo https://github.com/kenzok8/openwrt-packages' >>feeds.conf.default
 echo 'src-git chenzhen6666 https://github.com/chenzhen6666/luci-app-mproxy' >>feeds.conf.default
