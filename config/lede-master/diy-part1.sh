@@ -42,4 +42,3 @@ echo '=========Replace k3 wireless firmware OK!========='
 
 echo 'src-git small https://github.com/kenzok8/small' >>feeds.conf.default
 echo 'src-git kenzo https://github.com/kenzok8/openwrt-packages' >>feeds.conf.default
-echo 'src-git chenzhen6666 https://github.com/chenzhen6666/luci-app-mproxy' >>feeds.conf.default
